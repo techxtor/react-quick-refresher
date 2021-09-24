@@ -1,0 +1,7 @@
+import {useState} from 'react'
+hooks can only be used inside a fn comp and not class comp
+React Hooks must be called in the exact same order in every component render and should not be called conditionally.
+always returns 2 value
+    1.current state for each render
+    2. state updating fn
+updating states results in re-render

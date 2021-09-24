@@ -1,0 +1,37 @@
+The most imp hook
+
+useEffect => some sort of side effect when sth happens
+
+//from react-learning
+
+Effect/Side Effect ->
+    Main Job of React
+        RenderUI
+        React to changes
+        re-render
+Anything else is Effect
+-> store data in browser
+-> send http req
+-> set and manage timers
+
+These task must happen outside of normal component evaluation and render cycle - esp. bcoz they might block/delay rendering
+
+useEffect //hook
+
+useEffect(()=> {...}, [dependencies]);
+
+2 parameters
+1. fn that executes after every component evaluation IF the specified dependencies changed
+[side effect code goes here]
+2. dependencies of this effect - the fn only runs if dependencies changed
+[dependencies are specified here]
+
+DON'T need to add state updating functions
+DON'T need to add "built-in" APIs or functions like fetch(), localStorage etc
+DON'T need to add variables or functions you might've defined OUTSIDE of your components (e.g. if you create a new helper function in a separate file)
+So long story short: You must add all "things" you use in your effect function if those "things" could change because your component (or some parent component) re-rendered. 
+
+// ?
+// ? App start/restart is considered dependency changes [comp added or removed]
+
+// ! if [] is not there - it runs everytime app renders -> like every other fn
