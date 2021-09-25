@@ -21,7 +21,7 @@ function App() {
 
     //! this is called whenever this useEffect is cleaned up [here unmounted]
     //! forget abt mound/pageload and thereafter-> cleanup fn executes 1st then the actual fn
-    // everytime useeffect is ran - return cleansup what we did last time -> see useEffect in react learning
+    // everytime useeffect is ran - return cleans up what we did last time -> see useEffect in react learning
     return () => {
       window.removeEventListener('resize', handleResize);
     }
@@ -48,7 +48,9 @@ function App() {
         <button onClick={() => setResourceType('comments')}>Comments</button>
       </div>
       <h1>{resourceType}</h1>
-      {items.map(item => <pre>{JSON.stringify(item)}</pre>)}
+      {items.map(item =>
+        <pre key={Math.random()}>{JSON.stringify(item)}</pre>
+      )}
     </>
   );
 }

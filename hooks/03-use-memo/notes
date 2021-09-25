@@ -1,0 +1,16 @@
+useMemo => memorization
+- used to cache a value - so no need to recompute it everytime
+- not for val/ref -> ref1!=ref2 even those value is same
+- > memo makes ref1=ref2
+
+//  const themeStyle = {
+    backgroundColor: dark ? 'black' : 'white',
+    color: dark ? 'white' : 'black'
+  }
+  
+useEffect(()=>{
+  console.log('Theme Changed');
+}, [themeStyle])
+
+The 'themeStyle' object makes the dependencies of useEffect Hook (at line 23) change on every render. [ps - as it is ref type and value, even if same is considered as a change]
+To fix this, wrap the initialization of 'themeStyle' in its own useMemo() Hook
